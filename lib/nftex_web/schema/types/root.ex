@@ -15,4 +15,13 @@ defmodule NftexWeb.Schema.Types.Root do
       resolve &ArtResolver.get/2
     end
   end
+
+  object :root_mutation do
+    @desc "Create a new art"
+    field :create_art, :art do
+      arg :input, non_null(:create_art_input)
+
+      resolve &ArtResolver.create/2
+    end
+  end
 end
